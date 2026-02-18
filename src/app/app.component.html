@@ -1,0 +1,146 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a routerLink="/" class="logo">🛍️ ShopHub</a>
+    <div class="nav-links">
+      <a routerLink="/" class="nav-link">Store</a>
+      <a routerLink="/cart" class="nav-link cart-link">
+        <span>🛒 Cart</span>
+      </a>
+      <div class="auth-links">
+        <a routerLink="/login" class="nav-link">Login</a>
+        <a routerLink="/register" class="btn-primary">Register</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<main class="main-content">
+  <router-outlet />
+</main>
+
+<style>
+  :host {
+    display: block;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f7fafc 0%, #edf2f7 100%);
+    background-attachment: fixed;
+  }
+
+  .navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    color: #4a5568;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #667eea;
+    transition: width 0.3s;
+  }
+
+  .nav-link:hover {
+    color: #667eea;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .cart-link span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .auth-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid #e2e8f0;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  }
+
+  .main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .auth-links {
+      margin-left: 0.5rem;
+      padding-left: 0.5rem;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+    }
+  }
+</style>
